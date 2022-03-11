@@ -11,3 +11,4 @@
 - Add a task
 - Delete individual tasks
 - Delete all tasks
+- Store in local storage

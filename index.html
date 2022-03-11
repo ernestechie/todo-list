@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font-awesome CDN -->
+  <script src="https://kit.fontawesome.com/0b7e374f59.js" crossorigin="anonymous"></script>
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <title>Todo List</title>
+</head>
+<body>
+  <!-- 2nd February, 2022 -->
+  <div class="container">
+    <h1>To-do List</h1>
+    <form class="input-card">
+      <div class="input-field">
+        <input type="text" name="task" id="task" placeholder="Input task">
+      </div>
+      <div class="input-button">
+        <button class="button button-primary add-btn">Add task <i class="fas fa-plus"></i></button>
+      </div>
+    </form>
+    <div class="tasks-card">
+      <div class="heading">
+        <h2>Tasks List</h2>
+      </div>
+      <div class="tasks">
+        <ul class="task-collection">
+        </ul>
+      </div>
+      <div class="delete-item">
+        <button class="button clear-button">Delete tasks</button>
+      </div>
+    </div>
+  </div>
+  <script src="./app.js" defer></script>
+</body>
+</html>

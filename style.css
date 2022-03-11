@@ -1,0 +1,118 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 400px;
+  margin: auto;
+  border: 2px solid #ccc;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+.input-card {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #ccc;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: .9rem 2rem;
+  width: 10rem;
+  font-weight: bold;
+  color: white;
+}
+
+.button-primary {
+  background: rgb(0, 102, 255);
+}
+
+.button-primary:hover {
+  background: rgb(0, 52, 206);
+  transition: .3s ease-out;
+}
+
+.input-field input{
+  padding: 1rem;
+  margin: 1rem 0;
+  font-size: 1rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid rgb(0, 102, 255);
+}
+
+.tasks-card {
+  margin-top: 2rem;
+}
+
+.tasks {
+  margin: 2rem 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.clear-button {
+  background: rgb(223, 0, 0);
+}
+
+.clear-button:hover {
+  background: rgb(181, 0, 0);
+  transition: .3s ease-out;
+}
+
+.collection-item {
+  width: 100%;
+  position: relative;
+  padding: .5rem;
+  font-weight: 500;
+}
+
+.collection-item a {
+  position: absolute;
+  right: 0;
+}
+
+.fa-trash-alt {
+  color: rgb(223, 0, 0);
+  cursor: pointer;
+}
+
+@media(max-width: 1024px) {
+  .container {
+    width: 500px;
+  }
+}
+
+@media(max-width: 768px) {
+  .container {
+    width: 500px;
+  }
+}
+
+@media(max-width: 414px) {
+  .container {
+    width: 95vw;
+  }
+}

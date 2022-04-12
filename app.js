@@ -22,7 +22,7 @@ function getTasks() {
     tasks = [];
   } else {
     tasks = JSON.parse(localStorage.getItem('tasks'));
-    tasks.forEach(function (task) {
+    tasks.forEach(task => {
       const li = document.createElement('li');
       li.className = 'collection-item';
       li.appendChild(document.createTextNode(task));

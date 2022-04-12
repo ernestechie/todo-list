@@ -1,8 +1,10 @@
 const taskInput = document.querySelector('#task');
 const addTaskButton = document.querySelector('.add-btn');
 const taskList = document.querySelector('.task-collection');
-const clearButton = document.querySelector('.clear-button');
-
+const clearButton = document.querySelector('.clear-tasks-button');
+const modalCloseButton = document.querySelector('.close-modal-button');
+const modalHeader = document.querySelector('.modal-header');
+const modal = document.querySelector('.modal-overlay');
 
 // Load all event listeners
 loadEventListeners();
@@ -29,7 +31,8 @@ function getTasks() {
       
       const link = document.createElement('a');
       link.className = 'delete-task';
-      link.innerHTML = '<i class="far fa-trash-alt"></i>';
+      // link.innerHTML = `<i class="fas fa-trash-alt delete-button"></i>`;
+      link.innerHTML = `<ion-icon name="close"></ion-icon>`;
       li.appendChild(link);
       taskList.appendChild(li);
     });
@@ -45,7 +48,8 @@ function addTask(e) {
   
   const link = document.createElement('a');
   link.className = 'delete-task';
-  link.innerHTML = '<i class="far fa-trash-alt"></i>';
+  // link.innerHTML = `<i class="fas fa-trash-alt delete-button"></i>`;
+  link.innerHTML = '<ion-icon name="close"></ion-icon>';
 
   if (taskInput.value === '') {
     alert('Please add task!');
@@ -74,14 +78,29 @@ function storeTaskInLocalStorage(task) {
 
 // Removing tasks
 function removeTask(e) {
+  let element = e.target.parentElement.parentElement;
   if (e.target.parentElement.classList.contains('delete-task')) {
-    if (confirm('Proceed to delete task?')) {
-      e.target.parentElement.parentElement.remove(); 
-      // Remove from local storage
-      removeFromLocalStorage(e.target.parentElement.parentElement);
-    }
+      
+    (() => {
+      modal.style.display = 'block'
+
+      window.addEventListener('click', (e) => {
+        if (e.target.className === 'modal-overlay') {
+          modal.style.display = 'none';
+        }
+      });
+
+      modal.addEventListener('click', (e) => {
+        if (e.target.classList.contains('close-modal-button') || e.target.className === 'button button-primary') {
+          modal.style.display = 'none';
+        } else if (e.target.className === 'button clear-button') {
+          modal.style.display = 'none';
+          element.remove();
+          removeFromLocalStorage(element);
+        }
+      });
+    })();
   }
-  e.preventDefault();
 }
 
 // Remove tasks from locals storage
@@ -102,13 +121,31 @@ function removeFromLocalStorage(taskItem) {
 }
 
 // Clearing tasks from DOM
-function clearTasks() {
-  if (confirm('Proceed to delete all tasks?')) {
-    while (taskList.firstChild) {
-      taskList.removeChild(taskList.firstChild);
-    }
-  }
+function clearTasks(e) {
+  console.log(e.target);
+  if (e.target.classList.contains('clear-button')) {
+    (() => {
+      modal.style.display = 'block'
 
+      window.addEventListener('click', (e) => {
+        if (e.target.className === 'modal-overlay') {
+          modal.style.display = 'none';
+        }
+      });
+
+      modal.addEventListener('click', (e) => {
+        if (e.target.classList.contains('close-modal-button') || e.target.className === 'button button-primary') {
+          modal.style.display = 'none';
+        } else if (e.target.className === 'button clear-button') {
+          modal.style.display = 'none';
+          while (taskList.firstChild) {
+            taskList.removeChild(taskList.firstChild);
+          }
+          clearFromLocalStorage();
+        }
+      });
+    })();
+  }
   clearFromLocalStorage();
 }
 

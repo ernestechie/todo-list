@@ -8,11 +8,29 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./Style.css">
   <link rel="stylesheet" href="./Modal.css">
+  <link rel="stylesheet" href="./Style.css">
   <title>Todo List</title>
 </head>
 <body>
+  <!-- 12TH April, 2022 -->
+  <div class="modal-overlay">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-header-text">Proceed to delete task?</h3>
+        <ion-icon name="close" class="close-modal-button"></ion-icon>
+      </div>
+      <div class="modal-body">
+        <p class="modal-text">
+          Proceed to delete? This action cannot be undone
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="button button-primary">Cancel</button>
+        <button class="button clear-button">Proceed</button>
+      </div>
+    </div>
+  </div>
   <!-- 2nd February, 2022 -->
   <div class="container">
     <h1>To-do List</h1>
